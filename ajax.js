@@ -93,7 +93,7 @@ button_six.addEventListener('click', function() {
     $.ajax({
     url: 'http://first-ajax-api.herokuapp.com/time' ,
     method: 'GET',
-    data: {},
+    data: {timezone: 'America/Mexico_City'},
     dataType: 'text'
   }).done(function (responseData) {
     var timeElement = document.createElement("h3");
