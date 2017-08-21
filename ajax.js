@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var button_two    = document.querySelector('#button_two')
   var button_three  = document.querySelector('#button_three')
   var button_four   = document.querySelector('#button_four')
+  var button_five   = document.querySelector('#button_five')
 
   button_one.addEventListener('click', function() {
 
@@ -60,5 +61,27 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("Hey the request finished!");
     });
   })
+
+  button_five.addEventListener('click', function() {
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count',
+      method: 'GET',
+      data: {},
+      dataType: 'text',
+    }).done(function (responseData) {
+
+      var countElement = document.createElement("h3");
+      countElement.innerHTML = responseData
+      var section = document.querySelector('#step7')
+      section.appendChild(countElement);
+        console.log('Yay we did it!');
+    }).fail(function () {
+        console.log('That did NOT go well.');
+    }).always(function () {
+      console.log("All I know is, it's over.");
+  })
+
+});
 
 });
