@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var button_three  = document.querySelector('#button_three')
   var button_four   = document.querySelector('#button_four')
   var button_five   = document.querySelector('#button_five')
+  var button_six   = document.querySelector('#button_six')
+
+
+
 
   button_one.addEventListener('click', function() {
 
@@ -83,5 +87,32 @@ document.addEventListener("DOMContentLoaded", function() {
   })
 
 });
+
+button_six.addEventListener('click', function() {
+
+    $.ajax({
+    url: 'http://first-ajax-api.herokuapp.com/time' ,
+    method: 'GET',
+    data: {},
+    dataType: 'text'
+  }).done(function (responseData) {
+    var timeElement = document.createElement("h3");
+    timeElement.innerHTML = responseData
+    var section = document.querySelector('#step8')
+    section.appendChild(timeElement);
+      console.log('Yay we did it!');
+  }).fail(function () {
+      console.log('That did NOT go well.');
+  }).always(function () {
+    console.log("All I know is, it's over.");
+})
+
+});
+
+
+
+
+
+
 
 });
