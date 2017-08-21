@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var button_one    = document.querySelector('#button_one')
   var button_two    = document.querySelector('#button_two')
   var button_three  = document.querySelector('#button_three')
+  var button_four   = document.querySelector('#button_four')
 
   button_one.addEventListener('click', function() {
 
@@ -45,6 +46,18 @@ document.addEventListener("DOMContentLoaded", function() {
       var section = document.querySelector('#step3456')
       section.appendChild(fail);
       console.log(responseData);
+    });
+  })
+
+  button_four.addEventListener('click', function() {
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/pong',
+      method: 'GET',
+      data: {},
+      dataType: 'text',
+    }).always(function () {
+      console.log("Hey the request finished!");
     });
   })
 
